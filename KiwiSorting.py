@@ -1,4 +1,5 @@
 import csv
+import time
 
 #read from kiwiData.csv
 file = open('C:/Users/jerem/Desktop/Dev/2021/Python/KiwiSorting/kiwiData.csv', 'r') #open csv in read mode
@@ -7,7 +8,7 @@ csvList = list(csvReader) #creates list out of csv
 file.close()
 
 
-'''
+
 #bubble sort function
 def bubbleSort(listName, sortIndex):
     n = len(listName)
@@ -16,9 +17,6 @@ def bubbleSort(listName, sortIndex):
             if(listName[j][sortIndex] > listName[j + 1][sortIndex]):
                 listName[j], listName[j + 1] = listName[j + 1], listName[j]
 
-
-bubbleSort(csvList, 2)
-'''
 
 #selection sort function
 def selectionSort(listName, sortIndex):
@@ -31,7 +29,13 @@ def selectionSort(listName, sortIndex):
                 minimum = j
             listName[i], listName[minimum] = listName[minimum], listName[i]
 
-selectionSort(csvList, 2)
+
+#sort and time
+timeStart = time.time()
+bubbleSort(csvList, 2)
+timeEnd = time.time()
+print('Time taken:', timeEnd - timeStart)
+
 
 #write into sorted csv
 file = open('C:/Users/jerem/Desktop/Dev/2021/Python/KiwiSorting/sortedKiwiData.csv', 'w') #open csv in write mode
