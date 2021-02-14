@@ -7,7 +7,7 @@ csvList = list(csvReader) #creates list out of csv
 file.close()
 
 
-'''
+
 #bubble sort function
 def bubbleSort(listName, sortIndex):
     n = len(listName)
@@ -17,9 +17,9 @@ def bubbleSort(listName, sortIndex):
                 listName[j], listName[j + 1] = listName[j + 1], listName[j]
 
 bubbleSort(csvList, 2)
+
+
 '''
-
-
 #selection sort function
 def selectionSort(listName, sortIndex):
     n = len(listName)
@@ -31,6 +31,7 @@ def selectionSort(listName, sortIndex):
                 listName[i], listName[minimum] = listName[minimum], listName[i]
 
 selectionSort(csvList, 2)
+'''
 
 #write into sorted csv
 file = open('C:/Users/jerem/Desktop/Dev/2021/Python/KiwiSorting/sortedKiwiData.csv', 'w') #open csv in write mode
