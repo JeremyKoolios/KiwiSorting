@@ -1,5 +1,6 @@
 import csv
 import time
+import matplotlib.pyplot as mathPlot
 
 #read from kiwiData.csv
 file = open('C:/Users/jerem/Desktop/Dev/2021/Python/KiwiSorting/kiwiData.csv', 'r') #open csv in read mode
@@ -32,7 +33,7 @@ def selectionSort(listName, sortIndex):
 
 #sort and time
 timeStart = time.time()
-bubbleSort(csvList, 2)
+selectionSort(csvList, 2)
 timeEnd = time.time()
 print('Time taken:', timeEnd - timeStart)
 
@@ -44,9 +45,28 @@ for i in csvList[-1]: #writes column names
     file.write(i + ',')
 file.write('\n')
 
-n = len(csvList)
-o = len(csvList[0])
-for i in range(n - 1): #writes kiwi data
-    for j in range(o):
+for i in range(len(csvList) - 1): #writes kiwi data
+    for j in range(len(csvList[0])):
         file.write(csvList[i][j] + ',')
     file.write('\n')
+
+
+
+#plot
+height = []
+weight = []
+
+for i in range(len(csvList) - 1): #gets height and weight data
+    height.append(float(csvList[i][3]))
+    weight.append(float(csvList[i][2]))
+
+
+mathPlot.scatter(height, weight, s=10) #creates the graph
+mathPlot.xlim(33, 53)
+mathPlot.ylim(0, 4.5)
+mathPlot.xlabel('Height(cm)')
+mathPlot.ylabel('Weight(kg)')
+mathPlot.grid()
+mathPlot.title('Kiwi Data')
+
+mathPlot.show()
